@@ -1,0 +1,4 @@
+Eugene, 1 60
+Amelia, 2 10
+Nick, 1 80
+leon lee, 1 50
