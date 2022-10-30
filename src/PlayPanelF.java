@@ -159,6 +159,7 @@ public class PlayPanelF extends javax.swing.JPanel {
 
     private void quitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitbuttonActionPerformed
         //uninitialise();
+        mm.setpet(null);
         mm.changeto_mainmenu();
     }//GEN-LAST:event_quitbuttonActionPerformed
 

@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Mon Oct 31 01:21:59 NZDT 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0184-28d7-7411-00000ef849c0 
-on database directory C:\Users\Leon\OneDrive - AUT University\Code\Netbeans Y2 S2\PDC Assignment 2 NB\PetDatabase with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
+Mon Oct 31 01:31:39 NZDT 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0184-28e0-4f29-00000e7f0550 
+on database directory C:\Users\Leon\OneDrive - AUT University\Code\Netbeans Y2 S2\PDC Assignment 2 NB\PetDatabase with class loader sun.misc.Launcher$AppClassLoader@55f96302 
 Loaded from file:/C:/Users/Leon/OneDrive%20-%20AUT%20University/Code/Netbeans%20Y2%20S2/PDC%20Assignment%202%20NB/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=12.0.2+10
+java.runtime.version=1.8.0_202-b08
 user.dir=C:\Users\Leon\OneDrive - AUT University\Code\Netbeans Y2 S2\PDC Assignment 2 NB
 os.name=Windows 10
 os.arch=amd64
