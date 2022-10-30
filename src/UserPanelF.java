@@ -91,8 +91,9 @@ public class UserPanelF extends javax.swing.JPanel {
                 .addComponent(usernamefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginbutton)
-                .addGap(109, 109, 109)
-                .addComponent(quitbutton))
+                .addGap(66, 66, 66)
+                .addComponent(quitbutton)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
