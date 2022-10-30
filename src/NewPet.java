@@ -39,6 +39,7 @@ public class NewPet extends GeneratePet { // Class to create a new pet from user
 
     }
 
+    // new method for gui
     public Animal newPet(int type, String name) {
 
         if (name.equals("Enter pet name here")) {

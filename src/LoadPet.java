@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,14 +9,35 @@ public class LoadPet extends GeneratePet{
 
     int select;
     ReadFile rf;
-    ArrayList<String> namelist;
+    MainMenu mm;
+    DBIO io;
+    Animal pet;
 
     
 
-    public LoadPet() {
+    public LoadPet(MainMenu mainmenu) {
         this.rf = new ReadFile();
-        this.namelist = rf.names;
 
+        this.io = new DBIO();
+        //this.namelist = rf.names;
+
+    }
+    
+    public ArrayList<String> nameslist(String oname) {
+        io.initialiselist(oname);
+        return io.namelist;
+        
+    }
+    
+    public Animal load(int index) {
+        
+        Animal a = generatePet(io.typelist.get(index), io.namelist.get(index));
+
+        a.setStatus(io.moodlist.get(index));
+        System.out.println(io.typelist.get(index));
+        System.out.println(io.namelist.get(index));
+        System.out.println(io.moodlist.get(index));
+        return a;
     }
 
 
@@ -23,12 +45,10 @@ public class LoadPet extends GeneratePet{
     public Animal loadPet() throws Exception {
 
 
-
-
         if (!rf.readFromList()) {
             return null;
         }
-        namelist = rf.names;
+        io.namelist = rf.names;
 
         boolean valid = false;
 

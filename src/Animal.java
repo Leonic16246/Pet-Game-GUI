@@ -38,7 +38,7 @@ public abstract class Animal {
         this.status = status;
     }
 
-    public abstract void Mood(); // abstract method to print mood of animal
+    public abstract String Mood(); // abstract method to print mood of animal
 
     public void Play() {
   
@@ -46,9 +46,9 @@ public abstract class Animal {
 
         if (this.status > 100) {
             this.status = 100;
-            System.out.println(name + " is at max status");
+            //System.out.println(name + " is at max status");
         } else {
-            System.out.println("Status +10");
+            //System.out.println("Status +10");
         }
 
     }

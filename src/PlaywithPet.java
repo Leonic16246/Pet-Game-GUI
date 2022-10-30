@@ -3,6 +3,20 @@ import java.util.Scanner;
 
 public class PlaywithPet {
     
+    public PlaywithPet() {
+        
+    }
+    
+    public void playwith(Animal Pet) {
+        if (Pet != null) {
+            Pet.Play();
+            //Pet.Mood();
+            } else {
+            System.out.println("No pet loaded");
+        }
+        
+    }
+    
     public Animal petMenu(Animal Pet) throws Exception {
 
         Scanner sc = new Scanner(System.in);
@@ -45,17 +59,17 @@ public class PlaywithPet {
                     break;
 
                 case 3: // loads another pet from file to play with
-                    LoadPet lp = new LoadPet();
-                    Pet = lp.loadPet();
+                    //LoadPet lp = new LoadPet();
+                    //Pet = lp.loadPet();
                     break;
 
                 
                 case 9: // asks user to confirm deletion, if executed, returns user to main menu
-                    DeletePet dp = new DeletePet();
-                    if (dp.deleteFromFile(Pet)) {
-                        Pet = null;
-                        exit = true;
-                    }
+                    //DeletePet dp = new DeletePet();
+//                    if (dp.deleteFromFile(Pet)) {
+//                        Pet = null;
+//                        exit = true;
+//                    }
 
                     break;
 

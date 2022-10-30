@@ -1,16 +1,15 @@
 import java.awt.Graphics;
 import javax.swing.JFrame;
-
 import javax.swing.JPanel;
-
-
 import java.awt.CardLayout;
 
 public class MainMenu extends JFrame{
     
+    String uname;
     Animal Pet;
     CardLayout card;
-    MenuPanel menupanel;
+    UserPanel userpanel;
+    MainPanel menupanel;
     NewPetPanel newpetpanel;
     LoadPetPanel loadpetpanel;
     PlayPanel playpanel;
@@ -21,13 +20,16 @@ public class MainMenu extends JFrame{
     public MainMenu() {
 
         this.Pet = null;
+        this.uname = "";
 
         // cardlayout
         this.card = new CardLayout();
         this.mainpanel = new JPanel(this.card);
 
         // game panels
-        this.menupanel = new MenuPanel(this);
+        this.userpanel = new UserPanel(this);
+        mainpanel.add(userpanel, "usermenu");
+        this.menupanel = new MainPanel(this);
         mainpanel.add(menupanel, "mainmenu");
         this.newpetpanel = new NewPetPanel(this);
         mainpanel.add(newpetpanel, "newpetmenu");
@@ -45,18 +47,27 @@ public class MainMenu extends JFrame{
         this.setVisible(true);
 
     }
+    
+    public void changeto_usermenu() {
+        this.card.show(mainpanel, "usermenu");
 
+    }
     public void changeto_mainmenu() {
         this.card.show(mainpanel, "mainmenu");
+
     }
     public void changeto_newpetmenu() {
         this.card.show(mainpanel, "newpetmenu");
+
     }
     public void changeto_loadpetmenu() {
         this.card.show(mainpanel, "loadpetmenu");
+
     }
     public void changeto_playmenu() {
+        playpanel.initialise();
         this.card.show(mainpanel, "playmenu");
+
     }
     
 
@@ -74,13 +85,13 @@ public class MainMenu extends JFrame{
     public void paint(Graphics g) {
         super.paint(g);
 
-        repaint();
-
     }
 
-
     public static void main(String[] args) throws Exception { // Main menu to create or load a pet or exit game
-
+        DBIO io = new DBIO();
+        //io.createptable();
+        //io.createutable();
+        
         MainMenu mainmenu = new MainMenu();
         // mainmenu.initialisemainpanel();
     }

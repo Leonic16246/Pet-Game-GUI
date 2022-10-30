@@ -1,29 +1,27 @@
-public class Cat extends Animal{
 
+public class Cat extends Animal {
 
     public Cat(String name) {
         super(name);
     }
 
     @Override
-    public void Mood() {
+    public String Mood() {
 
         if (this.getStatus() > 75) {
-            
-            System.out.println("Puur... (" + this.getName() + " feels happy!)");
 
+            return "Puur... (" + this.getName() + " feels happy!), mood: " + this.getStatus();
 
         } else if (this.getStatus() < 25) {
 
-            System.out.println("Meow... (" + this.getName() + " feels sad)");
+            return "Meow... (" + this.getName() + " feels sad), mood: " + this.getStatus();
 
         } else {
 
-            System.out.println("Meow (" + this.getName() + " feels neutral)");
+            return "Meow (" + this.getName() + " feels neutral), mood: " + this.getStatus();
 
         }
-        
-    }
 
+    }
 
 }
