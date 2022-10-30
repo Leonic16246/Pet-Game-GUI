@@ -27,11 +27,12 @@ public class UserLogin {
             io.setrset(io.getutable());
 
             while (io.getrset().next()) {
-                if (uname.equals(io.getrset().getString("uname"))) {
+                if (uname.equals(io.getrset().getString("uname"))) { // if username exists in database, do nothing
                     mm.setuname(uname);
                     return true;
                 }
             }
+            // else insert username into db
             io.setpstate("INSERT INTO UTABLE (UNAME) VALUES(?)");
 
             io.getpstate().setString(1, uname);
