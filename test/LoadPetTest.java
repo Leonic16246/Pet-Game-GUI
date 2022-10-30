@@ -60,8 +60,8 @@ public class LoadPetTest {
         int index = 0;
         String oname = "Jake";
         LoadPet instance = new LoadPet();
-        Animal expResult = new Dog("Jordan");
-        Animal result = instance.load(index, oname); // first pet from db should be called Jordan
+        Animal expResult = new Cat("Jordan");
+        Animal result = instance.load(index, oname);
         assertEquals(expResult.getName(), result.getName());
         assertEquals(expResult.getClass(), result.getClass());
         
