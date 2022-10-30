@@ -24,7 +24,7 @@ public class LoadPetPanelF extends javax.swing.JPanel {
      */
     public LoadPetPanelF(MainMenu mm) {
         this.mm = mm;
-        this.lp = new LoadPet(mm);
+        this.lp = new LoadPet();
         initComponents();
     }
 
