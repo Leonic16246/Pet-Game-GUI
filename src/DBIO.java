@@ -108,7 +108,6 @@ public class DBIO {
         return this.typelist;
     }
 
-    
     public ArrayList<Integer> getmoodList(String oname) {
         System.out.println("making moodlist");
         rset = null;
@@ -166,7 +165,7 @@ public class DBIO {
             System.err.println("SQLEeption: " + ex.getMessage());
         }
     }
-    
+
     // change pet type, for debugging (only?)
     public void changetype(String oname, String pname, int type) {
 
@@ -221,29 +220,15 @@ public class DBIO {
         }
     }
 
-
-
-    public void getpmoods() {
-
-    }
-
     public ResultSet getptable() {
         return pset;
-    }
-
-    public void getunames() {
-
-    }
-
-    public void getupins() {
-
     }
 
     public ResultSet getutable() {
         return uset;
     }
 
-    // for creating pet table
+    // for creating sample pet table 
     public void createptable() {
 
         try {
@@ -256,7 +241,7 @@ public class DBIO {
         }
     }
 
-    // for creating user table
+    // for creating sample user table
     public void createutable() {
 
         try {

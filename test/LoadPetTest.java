@@ -33,7 +33,8 @@ public class LoadPetTest {
     }
     
     @After
-    publi    }
+    public void tearDown() {
+    }
 
     /**
      * Test of nameslist method, of class LoadPet.
@@ -41,13 +42,13 @@ public class LoadPetTest {
     @Test
     public void testNameslist() {
         System.out.println("nameslist");
-        String oname = "";
-        LoadPet instance = null;
-        ArrayList<String> expResult = null;
+        String oname = "Jake";
+        LoadPet instance = new LoadPet();
+        String expResult = "Jordan";
         ArrayList<String> result = instance.nameslist(oname);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result.get(0));
+        // Should get jordan from nameslist index 0 from db
+
     }
 
     /**
@@ -57,28 +58,13 @@ public class LoadPetTest {
     public void testLoad() {
         System.out.println("load");
         int index = 0;
-        String oname = "";
-        LoadPet instance = null;
-        Animal expResult = null;
-        Animal result = instance.load(index, oname);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of loadPet method, of class LoadPet.
-     */
-    @Test
-    public void testLoadPet() throws Exception {
-        System.out.println("loadPet");
-        LoadPet instance = null;
-        Animal expResult = null;
-        Animal result = instance.loadPet();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-c void tearDown() {
+        String oname = "Jake";
+        LoadPet instance = new LoadPet();
+        Animal expResult = new Dog("Jordan");
+        Animal result = instance.load(index, oname); // first pet from db should be called Jordan
+        assertEquals(expResult.getName(), result.getName());
+        assertEquals(expResult.getClass(), result.getClass());
+        // should make dog pet called Jordan
     }
     
 }
