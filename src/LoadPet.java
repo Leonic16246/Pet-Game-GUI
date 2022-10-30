@@ -15,12 +15,14 @@ public class LoadPet extends GeneratePet {
 
     }
 
+    // return namelist from db
     public ArrayList<String> nameslist(String oname) {
 
         return io.getnameList(oname);
 
     }
 
+    // returns a pet created from db values at index i
     public Animal load(int index, String oname) {
 
         namelist = io.getnameList(oname);

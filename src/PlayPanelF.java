@@ -24,7 +24,7 @@ public class PlayPanelF extends javax.swing.JPanel {
     }
 
     public void initialise() {
-        this.info.setText(mm.Pet.getName() + " wants to play! Mood:" + mm.Pet.getStatus());
+        this.info.setText(mm.getpet().getName() + " wants to play! Mood:" + mm.getpet().getStatus());
         this.confirm = false;
     }
 
@@ -126,15 +126,15 @@ public class PlayPanelF extends javax.swing.JPanel {
 
     private void playwithbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playwithbuttonActionPerformed
         PlaywithPet pwp = new PlaywithPet();
-        pwp.playwith(mm.Pet);
-        info.setText(mm.Pet.Mood());
+        pwp.playwith(mm.getpet());
+        info.setText(mm.getpet().Mood());
     }//GEN-LAST:event_playwithbuttonActionPerformed
 
     private void savebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebuttonActionPerformed
 
         info.setText("Saving");
         SavePet sp = new SavePet();
-        sp.save(mm.Pet, mm.uname);
+        sp.save(mm.getpet(), mm.getuname());
         info.setText("Saved!");
     }//GEN-LAST:event_savebuttonActionPerformed
 
@@ -147,10 +147,10 @@ public class PlayPanelF extends javax.swing.JPanel {
     private void deletebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebuttonActionPerformed
         if (confirm == false) {
             confirm = true;
-            info.setText("Press again to confirm deletion of " + mm.Pet.getName());
+            info.setText("Press again to confirm deletion of " + mm.getpet().getName());
         } else {
             DeletePet dp = new DeletePet(mm);
-            dp.delete(mm.uname, mm.Pet.getName());
+            dp.delete(mm.getuname(), mm.getpet().getName());
 
             //uninitialise();
             mm.changeto_mainmenu();

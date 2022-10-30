@@ -134,7 +134,7 @@ public class NewPetPanelF extends javax.swing.JPanel {
         this.pet = np.newPet(pettype, petname);
 
         if (this.pet != null) {
-            mm.Pet = this.pet;
+            mm.setpet(this.pet);
             mm.changeto_playmenu();
 
             this.petname = "Enter pet name here";

@@ -5,21 +5,21 @@ import java.awt.CardLayout;
 
 public class MainMenu extends JFrame{
     
-    String uname;
-    Animal Pet;
-    CardLayout card;
-    UserPanelF userpanel;
-    MainPanelF menupanel;
-    NewPetPanelF newpetpanel;
-    LoadPetPanelF loadpetpanel;
-    PlayPanelF playpanel;
-    JPanel mainpanel;
+    private String uname;
+    private Animal pet;
+    private final CardLayout card;
+    private final UserPanelF userpanel;
+    private final MainPanelF menupanel;
+    private final NewPetPanelF newpetpanel; // not private to call function from panels
+    final LoadPetPanelF loadpetpanel;
+    private final PlayPanelF playpanel;
+    private final JPanel mainpanel;
 
 
     // constructor (to initialise frame)
     public MainMenu() {
 
-        this.Pet = null;
+        this.pet = null;
         this.uname = "";
         
         this.setSize(600, 450);
@@ -37,8 +37,6 @@ public class MainMenu extends JFrame{
         mainpanel.add(newpetpanel, "newpetmenu");
         this.loadpetpanel = new LoadPetPanelF(this);
         mainpanel.add(loadpetpanel, "loadpetmenu");
-        
-        
         this.playpanel = new PlayPanelF(this);
         mainpanel.add(playpanel, "playmenu");
 
@@ -46,10 +44,23 @@ public class MainMenu extends JFrame{
 
         // frame
         this.setTitle("Virtual Pet Game");
-        
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 
+    }
+    
+    // gets/sets
+    public String getuname() {
+        return this.uname;
+    }
+    public void setuname(String uname) {
+        this.uname = uname;
+    }
+    public Animal getpet() {
+        return this.pet;
+    }
+    public void setpet(Animal pet) {
+        this.pet = pet;
     }
     
     public void changeto_usermenu() {
@@ -74,17 +85,6 @@ public class MainMenu extends JFrame{
         this.card.show(mainpanel, "playmenu");
 
     }
-    
-
-    // initialise panel for main menu
-    public void initialisemainpanel() {
-        //this.card.next(this);
-        // make frame visible
-        // this.newpet.setBounds(this.getWidth()/2 - 100, this.getHeight()/3, 200, 50);
-        // this.loadpet.setBounds(this.getWidth()/2 - 100, this.getHeight()/2, 200, 50);
-        // this.quit.setBounds(this.getWidth()/2 -100, this.getHeight() - 100, 200, 50);
-
-    }
 
     @Override
     public void paint(Graphics g) {
@@ -93,12 +93,15 @@ public class MainMenu extends JFrame{
     }
 
     public static void main(String[] args) throws Exception { // Main menu to create or load a pet or exit game
+        
         DBIO io = new DBIO();
+        
+        // for testing
         //io.createptable();
         //io.createutable();
         
         MainMenu mainmenu = new MainMenu();
-        // mainmenu.initialisemainpanel();
+        
     }
 
 

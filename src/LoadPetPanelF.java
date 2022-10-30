@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,9 +27,10 @@ public class LoadPetPanelF extends javax.swing.JPanel {
         initComponents();
     }
 
+    // to get list of pets correlating to username after user logs in
     public void initialise() {
         // list for pets
-        templist = lp.nameslist(mm.uname);
+        templist = lp.nameslist(mm.getuname());
 
         list = new String[templist.size()];
         for (int i = 0; i < templist.size(); i++) {
@@ -38,9 +38,8 @@ public class LoadPetPanelF extends javax.swing.JPanel {
         }
 
         this.petlist.setListData(list);
-     
-    }
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,12 +112,12 @@ public class LoadPetPanelF extends javax.swing.JPanel {
                 .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void selectbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectbuttonActionPerformed
         int i = petlist.getSelectedIndex();
         if (i != -1) {
 
-            mm.Pet = lp.load(i, mm.uname);
+            mm.setpet(lp.load(i, mm.getuname()));
             templist.clear();
             mm.changeto_playmenu();
 
@@ -128,9 +127,10 @@ public class LoadPetPanelF extends javax.swing.JPanel {
     }//GEN-LAST:event_selectbuttonActionPerformed
 
     private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
-        
+
         templist.clear();
-        if (mm.Pet != null) {
+        // if pet has been loaded, return to playmenu, else return to main menu
+        if (mm.getpet() != null) {
             mm.changeto_playmenu();
         } else {
             mm.changeto_mainmenu();

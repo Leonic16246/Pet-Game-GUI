@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,11 +15,11 @@ import java.util.logging.Logger;
 public class DBIO {
 
     private final DBManager dbManager;
-    Connection conn;
-    Statement statement;
-    PreparedStatement pstate;
-    String pstring;
-    ResultSet rset, pset, uset;
+    private Connection conn;
+    private Statement statement;
+    private PreparedStatement pstate;
+    private String pstring;
+    private ResultSet rset, pset, uset;
     private ArrayList<String> namelist;
     private ArrayList<Integer> typelist, moodlist;
 
@@ -29,7 +28,7 @@ public class DBIO {
         namelist = new ArrayList<>();
         typelist = new ArrayList<>();
         moodlist = new ArrayList<>();
-
+        pstring = "";
         rset = null;
 
         dbManager = new DBManager();
@@ -44,6 +43,7 @@ public class DBIO {
 
     }
 
+    // make bulk rsets from tables if needed
     public void initialiseList(String oname) {
 
         System.out.println("making list");
@@ -68,6 +68,7 @@ public class DBIO {
         }
     }
 
+    // return namelist
     public ArrayList<String> getnameList(String oname) {
         System.out.println("making namelist");
         rset = null;
@@ -88,6 +89,7 @@ public class DBIO {
         return this.namelist;
     }
 
+    // return typelist
     public ArrayList<Integer> gettypeList(String oname) {
         System.out.println("making typelist");
         rset = null;
@@ -108,6 +110,7 @@ public class DBIO {
         return this.typelist;
     }
 
+    // return moodlist
     public ArrayList<Integer> getmoodList(String oname) {
         System.out.println("making moodlist");
         rset = null;
@@ -184,6 +187,7 @@ public class DBIO {
         }
     }
 
+    // delete a pet form db
     public void delete(String oname, String pname) {
 
         System.out.println("deleting");
@@ -203,8 +207,8 @@ public class DBIO {
 
     }
 
-    public Statement getstatement() {
-        return statement;
+    public PreparedStatement getpstate() {
+        return pstate;
     }
 
     public void setpstring(String input) {
@@ -218,13 +222,20 @@ public class DBIO {
             Logger.getLogger(DBIO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public ResultSet getrset() {
+        return this.rset;
+    }
+    public void setrset(ResultSet set) {
+        this.rset = set;
+    }
 
     public ResultSet getptable() {
-        return pset;
+        return this.pset;
     }
 
     public ResultSet getutable() {
-        return uset;
+        return this.uset;
     }
 
     // for creating sample pet table 
