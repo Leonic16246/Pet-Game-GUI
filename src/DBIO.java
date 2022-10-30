@@ -158,7 +158,6 @@ public class DBIO {
             pstate.setInt(1, mood);
             pstate.setString(2, oname);
             pstate.setString(3, pname);
-
             pstate.executeUpdate();
 
         } catch (SQLException ex) {
@@ -235,7 +234,7 @@ public class DBIO {
             statement = conn.createStatement();
 
             statement.executeUpdate("CREATE TABLE PTABLE (ONAME VARCHAR(20), PNAME VARCHAR(20), TYPE INT, MOOD INT)");
-            statement.executeUpdate("INSERT INTO PTABLE VALUES ('Eugene', 'Amelia', 1, 60),\n" + "('Jake', 'Jordan', 1, 10),\n" + "('Leon L', 'Nevan', 2, 80)");
+            statement.executeUpdate("INSERT INTO PTABLE VALUES ('Eugene', 'Amelia', 1, 60),\n" + "('Jake', 'Jordan', 1, 0),\n" + "('Jake', 'Paige', 2, 80)");
         } catch (SQLException ex) {
             System.err.println("SQLEeption: " + ex.getMessage());
         }
