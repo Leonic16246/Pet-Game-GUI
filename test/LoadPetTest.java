@@ -64,7 +64,7 @@ public class LoadPetTest {
         Animal result = instance.load(index, oname); // first pet from db should be called Jordan
         assertEquals(expResult.getName(), result.getName());
         assertEquals(expResult.getClass(), result.getClass());
-        // should make dog pet called Jordan
+        
     }
     
 }
