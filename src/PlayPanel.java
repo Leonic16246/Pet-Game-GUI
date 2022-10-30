@@ -95,7 +95,7 @@ public class PlayPanel extends JPanel {
     
     public void loadbutton(java.awt.event.ActionEvent evt) {
         uninitialise();
-        mm.loadpetpanel.initialise(); // to make the list of user's pets after they log in
+        //mm.loadpetpanel.initialise(); // to make the list of user's pets after they log in
         mm.changeto_loadpetmenu();
         
         

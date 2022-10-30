@@ -26,10 +26,8 @@
                       <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jScrollPane1" pref="100" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="selectbutton" max="32767" attributes="0"/>
-                              <Component id="cancelbutton" pref="100" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="selectbutton" max="32767" attributes="0"/>
+                          <Component id="cancelbutton" pref="100" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="62" max="32767" attributes="0"/>
                   </Group>

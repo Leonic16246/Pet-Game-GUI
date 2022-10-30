@@ -15,6 +15,7 @@ public class LoadPetPanelF extends javax.swing.JPanel {
     MainMenu mm;
     LoadPet lp;
     ArrayList<String> templist;
+    String[] list;
 
     /**
      * Creates new form LoadPetPanelF
@@ -31,17 +32,15 @@ public class LoadPetPanelF extends javax.swing.JPanel {
         // list for pets
         templist = lp.nameslist(mm.uname);
 
-        String[] list = new String[templist.size()];
+        list = new String[templist.size()];
         for (int i = 0; i < templist.size(); i++) {
             list[i] = templist.get(i);
         }
 
         this.petlist.setListData(list);
+     
     }
 
-    public void uninitialise() {
-        this.templist.clear();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,7 +119,7 @@ public class LoadPetPanelF extends javax.swing.JPanel {
         if (i != -1) {
 
             mm.Pet = lp.load(i, mm.uname);
-            //uninitialise();
+            templist.clear();
             mm.changeto_playmenu();
 
         } else {
@@ -129,7 +128,8 @@ public class LoadPetPanelF extends javax.swing.JPanel {
     }//GEN-LAST:event_selectbuttonActionPerformed
 
     private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
-        uninitialise();
+        
+        templist.clear();
         if (mm.Pet != null) {
             mm.changeto_playmenu();
         } else {

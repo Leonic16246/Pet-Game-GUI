@@ -76,7 +76,7 @@ public class MainPanel extends JPanel {
 
     public void loadbutton(java.awt.event.ActionEvent evt) {
 
-        mm.loadpetpanel.initialise(); // to make the list of user's pets after they log in
+        //mm.loadpetpanel.initialise(); // to make the list of user's pets after they log in
         if (mm.loadpetpanel.templist.isEmpty()) {
             this.title.setText("No pets found, please create one");
         } else {
