@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,10 +15,9 @@ public class LoadPetPanel extends JPanel {
     ArrayList<String> templist;
     JList<String> petlist;
     DefaultListModel<String> list;
-    JScrollPane petscroll;
     JLabel info;
     LoadPet lp;
-    Animal pet;
+
 
     public LoadPetPanel(MainMenu mainmenu) {
         this.mm = mainmenu;
@@ -73,8 +71,6 @@ public class LoadPetPanel extends JPanel {
     
     public void uninitialise() {
         this.templist.clear();
-        this.remove(this.petlist);
-        this.remove(this.cancelbutton);
     }
 
     public void selectbutton(java.awt.event.ActionEvent evt) {

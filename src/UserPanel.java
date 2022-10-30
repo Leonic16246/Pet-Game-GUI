@@ -26,9 +26,9 @@ public class UserPanel extends JPanel {
     MainMenu mm;
     UserLogin login;
 
-    public UserPanel(MainMenu mainmenu) {
+    public UserPanel() {
 
-        this.mm = mainmenu;
+        //this.mm = mainmenu;
         this.setSize(800, 500);
         this.setLayout(new BoxLayout (this, BoxLayout.Y_AXIS));
         this.setBorder(new EmptyBorder(new Insets(40, 60, 40, 60)));

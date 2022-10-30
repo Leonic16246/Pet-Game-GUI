@@ -8,11 +8,11 @@ public class MainMenu extends JFrame{
     String uname;
     Animal Pet;
     CardLayout card;
-    UserPanel userpanel;
-    MainPanel menupanel;
-    NewPetPanel newpetpanel;
-    LoadPetPanel loadpetpanel;
-    PlayPanel playpanel;
+    UserPanelF userpanel;
+    MainPanelF menupanel;
+    NewPetPanelF newpetpanel;
+    LoadPetPanelF loadpetpanel;
+    PlayPanelF playpanel;
     JPanel mainpanel;
 
 
@@ -21,28 +21,32 @@ public class MainMenu extends JFrame{
 
         this.Pet = null;
         this.uname = "";
+        
+        this.setSize(600, 450);
 
         // cardlayout
         this.card = new CardLayout();
         this.mainpanel = new JPanel(this.card);
 
         // game panels
-        this.userpanel = new UserPanel(this);
+        this.userpanel = new UserPanelF(this);
         mainpanel.add(userpanel, "usermenu");
-        this.menupanel = new MainPanel(this);
+        this.menupanel = new MainPanelF(this);
         mainpanel.add(menupanel, "mainmenu");
-        this.newpetpanel = new NewPetPanel(this);
+        this.newpetpanel = new NewPetPanelF(this);
         mainpanel.add(newpetpanel, "newpetmenu");
-        this.loadpetpanel = new LoadPetPanel(this);
+        this.loadpetpanel = new LoadPetPanelF(this);
         mainpanel.add(loadpetpanel, "loadpetmenu");
-        this.playpanel = new PlayPanel(this);
+        
+        
+        this.playpanel = new PlayPanelF(this);
         mainpanel.add(playpanel, "playmenu");
 
         this.add(mainpanel);
 
         // frame
         this.setTitle("Virtual Pet Game");
-        this.setSize(1000, 500);
+        
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 

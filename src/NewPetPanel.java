@@ -17,10 +17,10 @@ public class NewPetPanel extends JPanel {
     MainMenu mm;
     Animal pet;
 
-    public NewPetPanel(MainMenu mainmenu) {
+    public NewPetPanel() {
 
         this.np = new NewPet();
-        this.mm = mainmenu;
+        //this.mm = mainmenu;
         this.pet = null;
         this.petname = "Enter pet name here";
 

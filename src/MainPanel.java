@@ -15,10 +15,10 @@ public class MainPanel extends JPanel {
     int select;// 0 for main, 1 to for new, 2 to load, 3 for play // to-do
     MainMenu mm;
 
-    public MainPanel(MainMenu mainmenu) {
+    public MainPanel() {
 
         //this.setLayout(new BorderLayout());
-        this.mm = mainmenu;
+        //this.mm = mainmenu;
 
         this.Pet = null;
         this.select = 0;

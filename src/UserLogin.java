@@ -1,6 +1,5 @@
 
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -9,7 +8,6 @@ import java.sql.Statement;
 public class UserLogin {
 
     DBIO io;
-    Statement statement;
     MainMenu mm;
 
     public UserLogin(MainMenu mainmenu) {
@@ -20,7 +18,7 @@ public class UserLogin {
 
     public boolean login(String uname) {
 
-        if (uname.equals("Username")) {
+        if (uname.equals("")) {
             return false;
         }
 
