@@ -2,6 +2,8 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainMenu extends JFrame{
     
@@ -22,7 +24,7 @@ public class MainMenu extends JFrame{
         this.pet = null;
         this.uname = "";
         
-        this.setSize(600, 450);
+        this.setSize(600, 500);
 
         // cardlayout
         this.card = new CardLayout();
@@ -81,9 +83,13 @@ public class MainMenu extends JFrame{
 
     }
     public void changeto_playmenu() {
-        playpanel.initialise();
+        
         this.card.show(mainpanel, "playmenu");
-
+        try {
+            playpanel.initialise();
+        } catch (Exception ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
