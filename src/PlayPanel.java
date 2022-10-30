@@ -82,6 +82,7 @@ public class PlayPanel extends JPanel {
         this.remove(this.savebutton);
         this.remove(this.deletebutton);
         this.remove(this.quitbutton);
+        this.confirm = false;
     }
     
     public void playwithbutton(java.awt.event.ActionEvent evt) {
@@ -116,7 +117,7 @@ public class PlayPanel extends JPanel {
         } else {
             DeletePet dp = new DeletePet(mm);
             dp.delete(mm.uname, mm.Pet.getName());
-            confirm = false;
+            
             uninitialise();
             mm.changeto_mainmenu();
         }

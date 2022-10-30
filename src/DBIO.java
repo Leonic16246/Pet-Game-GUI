@@ -21,8 +21,8 @@ public class DBIO {
     PreparedStatement pstate;
     String pstring;
     ResultSet rset, pset, uset;
-    ArrayList<String> namelist;
-    ArrayList<Integer> typelist, moodlist;
+    private ArrayList<String> namelist;
+    private ArrayList<Integer> typelist, moodlist;
 
     public DBIO() {
 
@@ -44,9 +44,9 @@ public class DBIO {
 
     }
 
-    public void initialiselist(String oname) {
+    public void initialiseList(String oname) {
 
-        System.out.println("yes");
+        System.out.println("making list");
         rset = null;
         try {
             setpstate("SELECT PNAME, TYPE, MOOD FROM PTABLE WHERE ONAME LIKE (?)");
@@ -68,6 +68,68 @@ public class DBIO {
         }
     }
 
+    public ArrayList<String> getnameList(String oname) {
+        System.out.println("making namelist");
+        rset = null;
+        try {
+            setpstate("SELECT PNAME FROM PTABLE WHERE ONAME LIKE (?)");
+            pstate.setString(1, oname);
+
+            rset = pstate.executeQuery();
+            while (rset.next()) {
+                namelist.add(rset.getString("pname"));
+                System.out.println(rset.getString("pname"));
+
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("SQLEeption: " + ex.getMessage());
+        }
+        return this.namelist;
+    }
+
+    public ArrayList<Integer> gettypeList(String oname) {
+        System.out.println("making typelist");
+        rset = null;
+        try {
+            setpstate("SELECT TYPE FROM PTABLE WHERE ONAME LIKE (?)");
+            pstate.setString(1, oname);
+
+            rset = pstate.executeQuery();
+            while (rset.next()) {
+                typelist.add(rset.getInt(1));
+                System.out.println(rset.getInt(1));
+
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("SQLEeption: " + ex.getMessage());
+        }
+        return this.typelist;
+    }
+
+    
+    public ArrayList<Integer> getmoodList(String oname) {
+        System.out.println("making moodlist");
+        rset = null;
+        try {
+            setpstate("SELECT MOOD FROM PTABLE WHERE ONAME LIKE (?)");
+            pstate.setString(1, oname);
+
+            rset = pstate.executeQuery();
+            while (rset.next()) {
+                moodlist.add(rset.getInt(1));
+                System.out.println(rset.getInt(1));
+
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("SQLEeption: " + ex.getMessage());
+        }
+        return this.moodlist;
+    }
+
+    // save to db as a new pet
     public void newsave(String oname, String pname, int type, int mood) {
 
         System.out.println("saving");
@@ -86,6 +148,7 @@ public class DBIO {
         }
     }
 
+    // save an existing pet by updating
     public void updatemood(String oname, String pname, int mood) {
 
         System.out.println("updating");
@@ -94,6 +157,25 @@ public class DBIO {
             setpstate("UPDATE PTABLE SET MOOD=? WHERE ONAME=? AND PNAME=?");
 
             pstate.setInt(1, mood);
+            pstate.setString(2, oname);
+            pstate.setString(3, pname);
+
+            pstate.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.err.println("SQLEeption: " + ex.getMessage());
+        }
+    }
+    
+    // change pet type, for debugging (only?)
+    public void changetype(String oname, String pname, int type) {
+
+        System.out.println("changing type");
+        rset = null;
+        try {
+            setpstate("UPDATE PTABLE SET TYPE=? WHERE ONAME=? AND PNAME=?");
+
+            pstate.setInt(1, type);
             pstate.setString(2, oname);
             pstate.setString(3, pname);
 
@@ -115,7 +197,6 @@ public class DBIO {
             pstate.setString(2, pname);
             int i = pstate.executeUpdate();
             System.out.println(i + "stat");
-            
 
         } catch (SQLException ex) {
             System.err.println("SQLEeption: " + ex.getMessage());
@@ -140,10 +221,7 @@ public class DBIO {
         }
     }
 
-    // todo return type
-    public void getpnames() {
 
-    }
 
     public void getpmoods() {
 

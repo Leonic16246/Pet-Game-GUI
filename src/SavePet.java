@@ -1,11 +1,16 @@
 
+import java.util.ArrayList;
+
+
 public class SavePet {
 
     public void save(Animal input, String oname) { //implement arraylist.contains()
         DBIO io = new DBIO();
-        io.initialiselist(oname);
+        ArrayList<String> nlist = new ArrayList<>();
+        nlist = io.getnameList(oname);
+        
 
-        if (io.namelist.contains(input.getName())) {
+        if (nlist.contains(input.getName())) {
 
             io.updatemood(oname, input.getName(), input.getStatus());
 

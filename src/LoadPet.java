@@ -12,7 +12,8 @@ public class LoadPet extends GeneratePet{
     MainMenu mm;
     DBIO io;
     Animal pet;
-
+    ArrayList<String> namelist;
+    ArrayList<Integer> typelist, moodlist;
     
 
     public LoadPet(MainMenu mainmenu) {
@@ -24,19 +25,20 @@ public class LoadPet extends GeneratePet{
     }
     
     public ArrayList<String> nameslist(String oname) {
-        io.initialiselist(oname);
-        return io.namelist;
+        
+        return io.getnameList(oname);
         
     }
     
-    public Animal load(int index) {
+    public Animal load(int index, String oname) {
         
-        Animal a = generatePet(io.typelist.get(index), io.namelist.get(index));
+        namelist = io.getnameList(oname);
+        typelist = io.gettypeList(oname);
+        moodlist = io.getmoodList(oname);
+        Animal a = generatePet(typelist.get(index), namelist.get(index));
 
-        a.setStatus(io.moodlist.get(index));
-        System.out.println(io.typelist.get(index));
-        System.out.println(io.namelist.get(index));
-        System.out.println(io.moodlist.get(index));
+        a.setStatus(moodlist.get(index));
+
         return a;
     }
 
@@ -48,7 +50,7 @@ public class LoadPet extends GeneratePet{
         if (!rf.readFromList()) {
             return null;
         }
-        io.namelist = rf.names;
+        namelist = rf.names;
 
         boolean valid = false;
 

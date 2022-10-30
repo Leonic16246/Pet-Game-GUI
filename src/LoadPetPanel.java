@@ -81,7 +81,7 @@ public class LoadPetPanel extends JPanel {
         int i = petlist.getSelectedIndex();
         if (i != -1) {
             
-            mm.Pet = lp.load(i);
+            mm.Pet = lp.load(i,mm.uname);
             uninitialise();
             mm.changeto_playmenu();
 
